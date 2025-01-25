@@ -14,6 +14,7 @@ public class ScreenMatch2Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Primeiro projeto Spring sem web");
+		System.out.println("Teste");
 	}
 
 }
