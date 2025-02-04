@@ -1,10 +1,14 @@
 package br.com.alura.ScreenMatch2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import br.com.alura.ScreenMatch2.models.DadosSerie;
+import br.com.alura.ScreenMatch2.models.DadosTemporada;
 import br.com.alura.ScreenMatch2.models.DadosEpisodio;
 import br.com.alura.ScreenMatch2.service.ConsumoApi;
 import br.com.alura.ScreenMatch2.service.ConverterDados;
@@ -27,6 +31,15 @@ public class ScreenMatch2Application implements CommandLineRunner {
 		json = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&Season=1&episode=2&apikey=3493ff3d");
 		DadosEpisodio dadosEpisodio = conversor.obterDados(json, DadosEpisodio.class);
 		System.out.println(dadosEpisodio);
+
+		List<DadosTemporada> temporadas = new ArrayList<>();
+
+		for (int i; i <= dados.totalTemporadas; i++) {
+			json = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&Season=" + i + "&apikey=3493ff3d");
+			DadosTemporada dadosTemporada = conversor.obterDados(json, DadosTemporada.class);
+			temporadas.add(dadosTemporada);
+		}
+		temporadas.forEach(System.out::Println);
 	}
 
 }
