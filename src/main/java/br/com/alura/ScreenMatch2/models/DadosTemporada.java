@@ -2,6 +2,10 @@ package br.com.alura.ScreenMatch2.models;
 
 import java.util.List;
 
-public record DadosTemporada(Integer numero,
-                            List<DadosEpisodio>) {
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record DadosTemporada(@JsonAlias("Season") Integer numero,
+                            @JsonAlias("Episodes")List<DadosEpisodio> episodios) {
 }
