@@ -34,12 +34,15 @@ public class ScreenMatch2Application implements CommandLineRunner {
 
 		List<DadosTemporada> temporadas = new ArrayList<>();
 
-		for (int i; i <= dados.totalTemporadas; i++) {
-			json = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&Season=" + i + "&apikey=3493ff3d");
-			DadosTemporada dadosTemporada = conversor.obterDados(json, DadosTemporada.class);
-			temporadas.add(dadosTemporada);
-		}
-		temporadas.forEach(System.out::Println);
+		if (dados.totalTemporadas() != null) {
+			for (int i = 1; i <= dados.totalTemporadas(); i++) {
+				json = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&Season=" + i + "&apikey=3493ff3d");
+				DadosTemporada dadosTemporada = conversor.obterDados(json, DadosTemporada.class);
+				temporadas.add(dadosTemporada);
+			}
+		}		
+
+        temporadas.forEach(System.out::println);
 	}
 
 }
