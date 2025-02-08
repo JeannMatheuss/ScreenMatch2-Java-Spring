@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import br.com.alura.ScreenMatch2.models.DadosEpisodio;
 import br.com.alura.ScreenMatch2.models.DadosSerie;
 import br.com.alura.ScreenMatch2.models.DadosTemporada;
 import br.com.alura.ScreenMatch2.service.ConsumoApi;
@@ -47,5 +46,6 @@ public class Principal {
 
         temporadas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
 
+        List<String> nomes = Arrays.asList("Jean", "Maria Alice", "João", "Thiago", "Ianny");
     }
 }
