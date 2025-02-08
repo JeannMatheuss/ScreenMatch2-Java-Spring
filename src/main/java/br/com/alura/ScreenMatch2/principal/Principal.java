@@ -51,6 +51,9 @@ public class Principal {
 
         nomes.stream()
             .sorted()
+            .limit(3)
+            .filter(n -> n.startsWith("J"))
+            .map(n -> n.toUpperCase())
             .forEach(System.out::println);
     }
 }
