@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import br.com.alura.ScreenMatch2.models.DadosEpisodio;
 import br.com.alura.ScreenMatch2.models.DadosSerie;
 import br.com.alura.ScreenMatch2.models.DadosTemporada;
 import br.com.alura.ScreenMatch2.service.ConsumoApi;
@@ -49,11 +50,13 @@ public class Principal {
 
         List<String> nomes = Arrays.asList("Jean", "Maria Alice", "João", "Thiago", "Ianny");
 
-        nomes.stream()
-            .sorted()
-            .limit(3)
-            .filter(n -> n.startsWith("J"))
-            .map(n -> n.toUpperCase())
-            .forEach(System.out::println);
+        // nomes.stream()
+        //     .sorted()
+        //     .limit(3)
+        //     .filter(n -> n.startsWith("J"))
+        //     .map(n -> n.toUpperCase())
+        //     .forEach(System.out::println);
+
+        List<DadosEpisodio> 
     }
 }
