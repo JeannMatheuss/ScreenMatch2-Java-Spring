@@ -2,8 +2,11 @@ package br.com.alura.ScreenMatch2.principal;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import br.com.alura.ScreenMatch2.models.DadosEpisodio;
 import br.com.alura.ScreenMatch2.models.DadosSerie;
@@ -57,6 +60,15 @@ public class Principal {
         //     .map(n -> n.toUpperCase())
         //     .forEach(System.out::println);
 
-        List<DadosEpisodio> 
+        List<DadosEpisodio> dadosEpisodios = temporadas.stream()
+            .flatMap(t -> t.episodios().stream())
+            .collect(Collectors.toList());
+            
+        System.out.println("\n Top 5 episódios");
+        dadosEpisodios.stream()
+            .filter(e -> !e.avaliacao().equalsIgnoreCase("N/A"))
+            .sorted(Comparator.comparing(DadosEpisodio::avaliacao).reversed())
+            .limit(5)
+            .forEach(System.out::println);
     }
 }
