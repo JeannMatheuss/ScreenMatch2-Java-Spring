@@ -22,3 +22,4 @@ public class ScreenMatch2Application implements CommandLineRunner {
 	}
 
 }
+
