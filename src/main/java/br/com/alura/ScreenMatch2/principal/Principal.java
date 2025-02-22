@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import br.com.alura.ScreenMatch2.models.DadosEpisodio;
 import br.com.alura.ScreenMatch2.models.DadosSerie;
 import br.com.alura.ScreenMatch2.models.DadosTemporada;
+import br.com.alura.ScreenMatch2.models.Episodio;
 import br.com.alura.ScreenMatch2.service.ConsumoApi;
 import br.com.alura.ScreenMatch2.service.ConverterDados;
 
@@ -69,7 +70,7 @@ public class Principal {
 
         List<Episodio> episodios = temporadas.stream()
             .flatMap(t -> t.episodios().stream())
-            .map(d -> new Episodio(t.numero(), d)).collect(Collectors.toList())
+            .map(d -> new Episodio(t.numero(), d)).collect(Collectors.toList());
 
     }
 }
