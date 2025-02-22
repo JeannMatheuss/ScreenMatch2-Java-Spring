@@ -2,14 +2,23 @@ package br.com.alura.ScreenMatch2.models;
 
 import java.time.LocalDate;
 
+import org.springframework.cglib.core.Local;
+
 public class Episodio {
     private Integer temporada;
     private String titulo;
-    private Integer numero;
-    private String avaliacao;
+    private Integer numeroEpisodio;
+    private Double avaliacao;
     private LocalDate dataLancamento;
 
-    
+    public Episodio(Integer numeroTemporada, DadosEpisodio dadosEpisodio) {
+        this.temporada = numeroTemporada;
+        this.titulo = dadosEpisodio.Titulo();
+        this.numeroEpisodio = dadosEpisodio.numero();
+        this.avaliacao = Double.valueOf(dadosEpisodio.avaliacao());
+        this.dataLancamento = LocalDate.parse(dadosEpisodio.dataLancamento());
+    }
+
     public Integer getTemporada() {
         return temporada;
     }
