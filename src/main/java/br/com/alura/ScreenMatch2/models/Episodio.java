@@ -1,6 +1,7 @@
 package br.com.alura.ScreenMatch2.models;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 import org.springframework.cglib.core.Local;
 
@@ -21,7 +22,13 @@ public class Episodio {
         } catch (NumberFormatException ex) {
             this.avaliacao = 0.0;
         }
-        this.dataLancamento = LocalDate.parse(dadosEpisodio.dataLancamento());
+
+        try{
+            this.dataLancamento = LocalDate.parse(dadosEpisodio.dataLancamento());
+        } catch (DateTimeParseException ex) {
+            this.dataLancamento = null;
+        }
+        
     }
 
     public Integer getTemporada() {
