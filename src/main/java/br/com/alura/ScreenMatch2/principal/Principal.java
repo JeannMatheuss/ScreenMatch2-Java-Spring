@@ -69,5 +69,7 @@ public class Principal {
 
         List<Episodio> episodios = temporadas.stream()
             .flatMap(t -> t.episodios().stream())
+            .map(d -> new Episodio(t.numero(), d)).collect(Collectors.toList())
+
     }
 }
